@@ -14,22 +14,20 @@ var html = "";
 var url = "https://api.twitch.tv/kraken/users/";
 var cid = "?callback=?&client_id=3h2g0xt7jmrjhrmojtz95pgpnhvxp0h";
 var logo = "";
+var name = "";
 
-$(document).ready(function() {
-  html = "<ul>";
-  streamers.forEach(function(streamer){
-    console.log(streamer);
-    $.getJSON(url + streamer + cid, function(result) {
-      if (result.logo) {
-        logo = " <img src=' " + result.logo + " ' class='logo'> ";
-      }
-      else {
-        logo = "<span>(Not Pictured)</span>";
-      }
-      var name = result.display_name;
-      html += ("<li>" + logo + " " + name + "</li>");
-      $('#list').append(html);
-    });
+html = "";
+for(var i = 0; i < streamers.length; i++) {
+  $.getJSON(url + streamers[i] + cid, function(result) {
+    if (result.logo) {
+      logo = "<img src='" + result.logo + "' class='logo'>";
+    }
+    else {
+      logo = "<img src='http://placehold.it/50x50' class='logo'>"; 
+    }
+    name = "<a href='http://twitch.tv/" + result.display_name + "'>" +
+                    result.display_name + "</a>";
+    
+    $("#streamers").append("<li>" + logo + name + "</li>");
   });
-  html += "</ul>";
-});
+}  
