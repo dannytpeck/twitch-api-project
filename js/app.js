@@ -10,15 +10,17 @@ var streamers = [
   "noobs2ninjas",
   "beohoff"
 ];
-var html = "";
-var url = "https://api.twitch.tv/kraken/users/";
-var cid = "?callback=?&client_id=3h2g0xt7jmrjhrmojtz95pgpnhvxp0h";
-var logo = "";
-var name = "";
 
-html = "";
-for(var i = 0; i < streamers.length; i++) {
-  $.getJSON(url + streamers[i] + cid, function(result) {
+// Begin code //
+
+$.each(streamers, function(i, streamer) {
+  var userURL = "https://api.twitch.tv/kraken/users/";
+  var streamsURL = "https://api.twitch.tv/kraken/streams/";
+  var callback = "?callback=?";
+  var data = {
+    client_id : "3h2g0xt7jmrjhrmojtz95pgpnhvxp0h",
+  }
+  $.getJSON(userURL + streamers[i] + callback, data, function(result) {
     if (result.logo) {
       logo = "<img src='" + result.logo + "' class='logo'>";
     }
@@ -28,6 +30,8 @@ for(var i = 0; i < streamers.length; i++) {
     name = "<a href='http://twitch.tv/" + result.display_name + "'>" +
                     result.display_name + "</a>";
     
-    $("#streamers").append("<li>" + logo + name + "</li>");
+    onlineIcon = '<i class="fa fa-exclamation"></i>'
+    
+    $("#userURL").append("<li>" + logo + name + onlineIcon + "</li>");
   });
-}  
+});
