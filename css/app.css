@@ -1,5 +1,5 @@
 body {
-  background-color: #FF9988;
+  background-color: #294F6D;
 }
 
 ul {
@@ -15,13 +15,13 @@ a:link,
 a:visited,
 a:hover,
 a:active {
-  color: #EE8866;
+  color: #042036;
   text-decoration: none;
 }
 
 nav {
-  background: #E26855;
-  color: white;
+  background: #486C88;
+  color: #DDD;
   height: 50px;
   width: 300px;
   line-height: 2;
@@ -34,7 +34,7 @@ nav li {
 }
 
 #all {
-  border-right: 1px solid #FF9988;
+  border-right: 1px solid #294F6D;
   padding: 10px 0px 2px 0px;
   position: relative;
   left: 20px;
@@ -51,7 +51,7 @@ nav li {
 }
 
 #offline {
-  border-left: 1px solid #FF9988;
+  border-left: 1px solid #294F6D;
   padding: 10px 0px 2px 0px;
   position: relative;
   left: 70px;
@@ -60,6 +60,14 @@ nav li {
 #offline p {
   position: relative;
   left: 40px;
+}
+
+.fa-search {
+  position: relative;
+  top: 2px;
+  left: 10px;
+  z-index: 10;
+  color: #ccc;
 }
 
 #search {
@@ -73,28 +81,65 @@ nav li {
 }
 
 #search input {
+  position: relative;
+  bottom: 18px;
   height: 20px;
   width: 270px;
   margin: 0 auto;
   border-radius: 20px;
-  padding-left: 25px;
+  padding-left: 35px;
+  border: 1px solid #DDD;
+  outline: none;
 }
 
 #streamers {
   background: white;
-  min-height: 600px;
+  height: 575px;
   width: 300px;
   margin: 0 auto;
   padding: 15px 0;
+  text-align: left;
+}
+
+#streamers ul {
 }
 
 #streamers li {
   margin-top: 0;
 }
 
+.username {
+  position: relative;
+  right: 30px;
+}
+
 .logo {
+  position: relative;
+  right: 35px;
   margin: 0 10px;
   height: 50px;
   width: 50px;
   border-radius: 100%;
+}
+
+.fa-times {
+  float: right;
+  position: relative;
+  top: 20px;
+  right: 15px;
+  color: #CC0000;
+}
+
+nav li:hover {
+  color: #959595; 
+}
+
+.status {
+  position: absolute;
+  background-color: #7788AA;
+  padding: 5px 10px;
+  border-radius: 25px;
+  font-size: .75em;
+  margin-left: 20px;
+  margin-top: 12px;
 }
